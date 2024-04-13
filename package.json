@@ -1,6 +1,7 @@
+
 {
-  "name": "studynotion-client",
-  "description": "This is the client side of the StudyNotion App",
+  "name": "pathshala-client",
+  "description": "This is the client side of the PathShala App",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

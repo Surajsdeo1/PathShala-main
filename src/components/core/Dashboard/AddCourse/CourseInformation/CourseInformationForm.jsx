@@ -226,12 +226,13 @@ export default function CourseInformationForm() {
           Course Category <sup className="text-pink-200">*</sup>
         </label>
         <select
-          {...register("courseCategory", { required: true })}
+         id="courseCategory"
           defaultValue=""
-          id="courseCategory"
+          {...register("courseCategory",{ required: true } )}
+          
           className="form-style w-full"
         >
-          <option value="" disabled>
+          <option value="" >
             Choose a Category
           </option>
           {!loading &&
@@ -247,7 +248,7 @@ export default function CourseInformationForm() {
           </span>
         )}
       </div>
-      {/* Course Tags */}
+      {/* Course Tags */} 
       <ChipInput
         label="Tags"
         name="courseTags"
@@ -261,6 +262,7 @@ export default function CourseInformationForm() {
       <Upload
         name="courseImage"
         label="Course Thumbnail"
+        
         register={register}
         setValue={setValue}
         errors={errors}

@@ -1,3 +1,7 @@
+
+
+
+//authAPI.js file
 import { toast } from "react-hot-toast"
 
 import { setLoading, setToken } from "../../slices/authSlice"
@@ -23,7 +27,7 @@ export function sendOtp(email, navigate) {
         email,
         checkUserPresent: true,
       })
-      console.log("SENDOTP API RESPONSE............", response)
+      console.log("SEND OTP API RESPONSE............", response)
 
       console.log(response.data.success)
 
@@ -41,6 +45,7 @@ export function sendOtp(email, navigate) {
     toast.dismiss(toastId)
   }
 }
+
 
 export function signUp(
   accountType,
