@@ -1,1 +1,1 @@
-# StudyNotion Edtech Project
+# PathShala Edtech Project

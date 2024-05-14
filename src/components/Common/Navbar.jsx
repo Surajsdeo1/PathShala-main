@@ -4,7 +4,7 @@ import { BsChevronDown } from "react-icons/bs"
 import { useSelector } from "react-redux"
 import { Link, matchPath, useLocation } from "react-router-dom"
 
-import logo from "../../assets/Logo/Logo-Full-Light.png"
+// import logo from "../../assets/Logo/Logo-Full-Light.png"
 import { NavbarLinks } from "../../data/navbar-links"
 import { apiConnector } from "../../services/apiConnector"
 import { categories } from "../../services/apis"
@@ -67,7 +67,14 @@ function Navbar() {
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}
         <Link to="/">
-          <img src={logo} alt="Logo" width={160} height={32} loading="lazy" />
+          <div className="text-white flex gap-2">
+            <div className=" border rounded-full  overflow-hidden w-7 h-6 bg-yellow-500 ">
+            <p className="font-extrabold text-bold object-cover pl-2">P</p>
+            </div>
+          <h1 className="text-white font-extrabold  text-bold">PathShala</h1>
+
+          </div>
+          
         </Link>
         {/* Navigation links */}
         <nav className="hidden md:block">
@@ -144,8 +151,11 @@ function Navbar() {
               )}
             </Link>
           )}
+          <div className="gap-x-8 md:flex">
           {token === null && (
+            
             <Link to="/login">
+              
               <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
                 Log in
               </button>
@@ -159,6 +169,7 @@ function Navbar() {
             </Link>
           )}
           {token !== null && <ProfileDropdown />}
+          </div>
         </div>
         <button className="mr-4 md:hidden">
           <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
