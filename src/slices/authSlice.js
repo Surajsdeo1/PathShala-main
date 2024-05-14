@@ -1,18 +1,10 @@
+//authSlice.js file
 import { createSlice } from "@reduxjs/toolkit";
-
-const storedToken = localStorage.getItem("token");
-
-let initialToken = null;
-try {
-  initialToken = JSON.parse(storedToken);
-} catch (error) {
-  console.error("Error parsing token:", error);
-}
 
 const initialState = {
   signupData: null,
   loading: false,
-  token: JSON.stringify(initialToken), // Stringify the token here
+  token: localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")) : null,
 };
 
 const authSlice = createSlice({
@@ -26,7 +18,7 @@ const authSlice = createSlice({
       state.loading = value.payload;
     },
     setToken(state, value) {
-      state.token = JSON.stringify(value.payload); // Stringify the token when setting
+      state.token = value.payload;
     },
   },
 });
