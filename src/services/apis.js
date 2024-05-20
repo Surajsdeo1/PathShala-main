@@ -1,5 +1,6 @@
 //apis.js files
-const BASE_URL = process.env.REACT_APP_BASE_URL
+const BASE_URL = "https://pathsalaserver.onrender.com"
+// const BASE_URL = "http://localhost:8081/api/v1"   for local host and above one is for server
 
 // AUTH ENDPOINTS
 export const endpoints = {

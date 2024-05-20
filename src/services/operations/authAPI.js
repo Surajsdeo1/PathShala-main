@@ -28,7 +28,7 @@ export function sendOtp(email, navigate) {
         checkUserPresent: true,
       })
       console.log("SEND OTP API RESPONSE............", response)
-
+      console.log(response+ "your otp section");
       console.log(response.data.success)
 
       if (!response.data.success) {
@@ -38,7 +38,7 @@ export function sendOtp(email, navigate) {
       toast.success("OTP Sent Successfully")
       navigate("/verify-email")
     } catch (error) {
-      console.log("SENDOTP API ERROR............", error)
+      console.log("SENDOTP API ERROR............", error);
       toast.error("Could Not Send OTP")
     }
     dispatch(setLoading(false))
@@ -70,7 +70,7 @@ export function signUp(
         confirmPassword,
         otp,
       })
-
+      console.log(response + "your signup section");
       console.log("SIGNUP API RESPONSE............", response)
 
       if (!response.data.success) {
