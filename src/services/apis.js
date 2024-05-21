@@ -1,6 +1,5 @@
 //apis.js files
-const BASE_URL = "https://pathsalaserver.onrender.com"
-// const BASE_URL = "http://localhost:8081/api/v1"   for local host and above one is for server
+const BASE_URL = "http://localhost:8081/api/v1";
 
 // AUTH ENDPOINTS
 export const endpoints = {

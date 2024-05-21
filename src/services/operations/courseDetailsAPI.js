@@ -25,10 +25,12 @@ const {
 } = courseEndpoints
 
 export const getAllCourses = async () => {
+  console.log("entered ");
   const toastId = toast.loading("Loading...")
   let result = []
   try {
-    const response = await apiConnector("GET", GET_ALL_COURSE_API)
+    const response = await apiConnector("GET", GET_ALL_COURSE_API);
+    console.log("your response is "+ response);
     if (!response?.data?.success) {
       throw new Error("Could Not Fetch Course Categories")
     }
