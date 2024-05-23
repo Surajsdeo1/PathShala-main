@@ -63,15 +63,6 @@ export async function BuyCourse(
     }
     console.log("PAYMENT RESPONSE FROM BACKEND............", orderResponse.data);
 
-    console.log("Before assignment");
-    const idCheck1 = "rzp_test_aVvu4KDHf0kvgY";
-    console.log("After assignment, idCheck:", idCheck1);
-    if (idCheck1) {
-      console.log("razor pay " + idCheck1);
-    } else {
-      console.log("no id");
-    }
-    console.log("After if-else");
     
 
     // Opening the Razorpay SDK
