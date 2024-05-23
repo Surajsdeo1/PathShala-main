@@ -1,5 +1,4 @@
 import { toast } from "react-hot-toast"
-
 import rzpLogo from "../../assets/Logo/rzp_logo.png"
 import { resetCart } from "../../slices/cartSlice"
 import { setPaymentLoading } from "../../slices/courseSlice"
@@ -37,7 +36,7 @@ export async function BuyCourse(
 ) {
   const toastId = toast.loading("Loading...")
   try {
-    // Loading the script of Razorpay SDK
+    // Loading the script of Razorpay SDK 
     const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js")
 
     if (!res) {
@@ -62,15 +61,26 @@ export async function BuyCourse(
     if (!orderResponse.data.success) {
       throw new Error(orderResponse.data.message)
     }
-    console.log("PAYMENT RESPONSE FROM BACKEND............", orderResponse.data)
+    console.log("PAYMENT RESPONSE FROM BACKEND............", orderResponse.data);
+
+    console.log("Before assignment");
+    const idCheck1 = "rzp_test_aVvu4KDHf0kvgY";
+    console.log("After assignment, idCheck:", idCheck1);
+    if (idCheck1) {
+      console.log("razor pay " + idCheck1);
+    } else {
+      console.log("no id");
+    }
+    console.log("After if-else");
+    
 
     // Opening the Razorpay SDK
     const options = {
-      key: process.env.RAZORPAY_KEY,
+      key: 'rzp_test_aVvu4KDHf0kvgY',
       currency: orderResponse.data.data.currency,
       amount: `${orderResponse.data.data.amount}`,
       order_id: orderResponse.data.data.id,
-      name: "StudyNotion",
+      name: "Pathsala",
       description: "Thank you for Purchasing the Course.",
       image: rzpLogo,
       prefill: {
