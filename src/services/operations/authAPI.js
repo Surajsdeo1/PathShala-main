@@ -60,6 +60,7 @@ export function signUp(
   return async (dispatch) => {
     const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
+    console.log(SIGNUP_API);
     try {
       const response = await apiConnector("POST", SIGNUP_API, {
         accountType,
@@ -69,7 +70,7 @@ export function signUp(
         password,
         confirmPassword,
         otp,
-      })
+      });
       console.log(response + "your signup section");
       console.log("SIGNUP API RESPONSE............", response)
 
