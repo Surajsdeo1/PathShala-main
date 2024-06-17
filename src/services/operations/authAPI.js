@@ -19,30 +19,38 @@ const {
 } = endpoints
 
 export function sendOtp(email, navigate) {
+  console.log('sendOtp function called with email:', email);
   return async (dispatch) => {
-    const toastId = toast.loading("Loading...")
-    dispatch(setLoading(true))
-    try {
-      const response = await apiConnector("POST", SENDOTP_API, {
-        email,
-        checkUserPresent: true,
-      });
-      console.log("SEND OTP API RESPONSE............", response)
-      console.log(response+ "your otp section");
-      console.log(response.data.success)
+    const toastId = toast.loading("Loading...");
+    dispatch(setLoading(true));
+    try { 
+      console.log('Calling apiConnector with:', SENDOTP_API, { email, checkUserPresent: true });
 
-      if (!response.data.success) {
-        throw new Error(response.data.message)
+      const response = await apiConnector("POST", SENDOTP_API, { email, checkUserPresent: true });
+      console.log('API response:', response); 
+      if (response.data.success) {
+        toast.dismiss(toastId); 
+        toast.success(response.data.message, {
+          theme: "dark",
+        });
+        console.log('Success message:', response.data.message);
+        navigate("/verify-email");
+      } else {
+        toast.dismiss(toastId);  
+        toast.error(response.data.message, {
+          theme: "dark",
+        });
+        console.log('Error message from API:', response.data.message);
       }
-
-      toast.success("OTP Sent Successfully")
-      navigate("/verify-email")
     } catch (error) {
-      console.log("SENDOTP API ERROR............", error);
-      toast.error("Could Not Send OTP")
+      console.log("SENDOTP API ERROR:", error); 
+      toast.dismiss(toastId);  
+      toast.error(error.response?.data?.message || "Could Not Send OTP", {
+        theme: "dark",
+      });
+    } finally {
+      dispatch(setLoading(false));  
     }
-    dispatch(setLoading(false))
-    toast.dismiss(toastId)
   }
 }
 
