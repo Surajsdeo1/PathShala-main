@@ -1,6 +1,6 @@
 //apis.js files
-const BASE_URL = "https://pathsalaserver.onrender.com";
-
+const BASE_URL = "https://pathsalaserver.onrender.com/api/v1";
+console.log(BASE_URL);
 // AUTH ENDPOINTS
 export const endpoints = {
   SENDOTP_API: BASE_URL + "/auth/sendotp",
